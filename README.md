@@ -23,7 +23,7 @@ sudo pip install Django==1.7.7
 Clone the project. Notice we didn't use sudo here. The folder has to belong to the Pi user.
 ```
 cd /home/pi
-git clone https://github.com/Sispheor/Piclodio2.git
+git clone https://github.com/Sispheor/Piclodio2-interface-mod.git
 ```
 
 Option 1 : Use Django's server to run piclodio
@@ -35,7 +35,7 @@ As pi user :
 
 Copy the init script
 ```
-sudo cp Piclodio2/run_piclodio/init_script/piclodio.sh /etc/init.d/piclodio
+sudo cp Piclodio2-interface-mod/run_piclodio/init_script/piclodio.sh /etc/init.d/piclodio
 sudo chmod +x /etc/init.d/piclodio
 sudo update-rc.d piclodio defaults
 ```
@@ -56,12 +56,12 @@ sudo apt-get install apache2 libapache2-mod-wsgi
 ```
 Move Piclodio in default apache directory and give access
 ```
-sudo mv /home/pi/Piclodio2 /var/www
-sudo chown -R www-data: /var/www/Piclodio2
+sudo mv /home/pi/Piclodio2-interface-mod /var/www
+sudo chown -R www-data: /var/www/Piclodio2-interface-mod
 ```
 Copy vHost from sources folder into apache vHost configuration folder
 ```
-sudo cp /var/www/Piclodio2/run_piclodio/apache/piclodio.conf /etc/apache2/sites-available/piclodio
+sudo cp /var/www/Piclodio2-interface-mod/run_piclodio/apache/piclodio.conf /etc/apache2/sites-available/piclodio
 ```
 Enable the vHost
 ```
