@@ -19,11 +19,16 @@ def homepage(request):
     listalarmclock = Alarmclock.objects.all()
     # clock
     clock = strftime("%H:%M:%S")
+    # get sound info
+    am = AudioManager()
+    currentvolume = am.get_percent_volume()
+    currentmute = am.get_mute_status()
     return render(request, 'homepage.html', {'radio': radio,
                                              'player': player,
                                              'listalarmclock': listalarmclock,
-                                             'clock': clock})
-
+                                             'clock': clock,
+                                             'currentVolume': currentvolume,
+                                             'currentMute': currentmute})
 
 def webradio(request):
     listradio = Webradio.objects.all()
@@ -204,25 +209,25 @@ def deleteAlarmClock(request, id_alarmclock):
 def volumeup(request, count):
     am = AudioManager()
     am.volume_up()
-    return redirect('webgui.views.options')
+    return redirect('webgui.views.homepage')
 
 
 def volumedown(request, count):
     am = AudioManager()
     am.volume_down()
-    return redirect('webgui.views.options')
+    return redirect('webgui.views.homepage')
 
 
 def volumeset(request, volume):
     am = AudioManager()
     am.set_volume(int(volume))
-    return redirect('webgui.views.options')
+    return redirect('webgui.views.homepage')
 
 
 def volumetmute(request):
     am = AudioManager()
     am.togglemute()
-    return redirect('webgui.views.options')
+    return redirect('webgui.views.homepage')
 
 
 def _convert_period_to_crontab(period):
