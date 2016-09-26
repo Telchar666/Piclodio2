@@ -1,3 +1,6 @@
+I'm not a Developper !!!
+This is the project of Sispheor (https://github.com/Sispheor/Piclodio2), this branch is just a little change about the interface of the piclodio project. The aim of this changes is to have the volume interface on the homepage of the webradio.
+
 Piclodio2
 =========
 
@@ -23,9 +26,12 @@ sudo pip install Django==1.7.7
 Clone the project. Notice we didn't use sudo here. The folder has to belong to the Pi user.
 ```
 cd /home/pi
-git clone https://github.com/Sispheor/Piclodio2-interface-mod.git
+git clone https://github.com/Telchar666/Piclodio2-interface-mod.git
 ```
-
+Change name of the modified folder to the original name.
+```
+sudo mv /home/pi/Piclodio2-interface-mod /home/pi/Piclodio2
+```
 Option 1 : Use Django's server to run piclodio
 ==========
 
@@ -35,7 +41,7 @@ As pi user :
 
 Copy the init script
 ```
-sudo cp Piclodio2-interface-mod/run_piclodio/init_script/piclodio.sh /etc/init.d/piclodio
+sudo cp Piclodio2/run_piclodio/init_script/piclodio.sh /etc/init.d/piclodio
 sudo chmod +x /etc/init.d/piclodio
 sudo update-rc.d piclodio defaults
 ```
@@ -57,11 +63,14 @@ sudo apt-get install apache2 libapache2-mod-wsgi
 Move Piclodio in default apache directory and give access
 ```
 sudo mv /home/pi/Piclodio2-interface-mod /var/www
-sudo chown -R www-data: /var/www/Piclodio2-interface-mod
+sudo chown -R www-data: /var/www/Piclodio2
 ```
+
+
+
 Copy vHost from sources folder into apache vHost configuration folder
 ```
-sudo cp /var/www/Piclodio2-interface-mod/run_piclodio/apache/piclodio.conf /etc/apache2/sites-available/piclodio
+sudo cp /var/www/Piclodio2/run_piclodio/apache/piclodio.conf /etc/apache2/sites-available/piclodio
 ```
 Enable the vHost
 ```
