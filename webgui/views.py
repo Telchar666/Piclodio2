@@ -120,6 +120,8 @@ def play(request, id_radio):
     print http_code
     if http_code == 200:
         player.play(radio)
+        os.system("gpio mode 0 out")
+        os.system("gpio write 0 1")
     else:
         # play backup MP3
         radio.url = 'mplayer backup_mp3/*'
@@ -130,6 +132,8 @@ def play(request, id_radio):
 def stop(request):
     player = Player()
     player.stop()
+    os.system("gpio mode 0 out")
+    os.system("gpio write 0 0")
     time.sleep(1)
     return redirect('webgui.views.homepage')
 
