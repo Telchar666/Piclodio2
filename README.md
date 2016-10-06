@@ -1,6 +1,8 @@
 I'm not a Developper !!!
 This is the project of Sispheor (https://github.com/Sispheor/Piclodio2), this branch is just a little change about the interface of the piclodio project. The aim of this changes is to have the volume interface on the homepage of the webradio.
 
+I modified also the project to turn on the gpio pin 0 to power up an amp automaticaly. You will need to install WiringPi (http://wiringpi.com/download-and-install/) to use this part of my modified version of Piclodio2.
+
 Piclodio2
 =========
 
