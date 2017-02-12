@@ -64,7 +64,7 @@ sudo apt-get install apache2 libapache2-mod-wsgi
 ```
 Move Piclodio in default apache directory and give access
 ```
-sudo mv /home/pi/Piclodio2-interface-mod /var/www
+sudo mv /home/pi/Piclodio2 /var/www
 sudo chown -R www-data: /var/www/Piclodio2
 ```
 
